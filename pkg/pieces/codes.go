@@ -1,7 +1,9 @@
 package pieces
 
+type PieceCode uint8
+
 const (
-	Empty uint8 = iota
+	Empty PieceCode = iota
 	WPawn
 	WKnight
 	WBishop

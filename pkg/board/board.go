@@ -17,10 +17,19 @@ const (
 	WQCA = 2
 	BKCA = 4
 	BQCA = 8
+
+	BRD_SQ_NUM = 120 // 10x12 board representation
+)
+
+const (
+	White = iota
+	Black
+	Both
 )
 
 type Board struct {
-	squares [120]uint8
+	squares [BRD_SQ_NUM]uint8
+	pawns   [3]uint64
 
 	sideToMove uint8
 	enPassant  uint8
@@ -40,9 +49,3 @@ type Board struct {
 
 	history MovesHistory
 }
-
-const (
-	White = iota
-	Black
-	Both
-)
