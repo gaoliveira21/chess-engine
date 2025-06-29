@@ -12,6 +12,8 @@ Rules:
 */
 package board
 
+import "fmt"
+
 const (
 	WKCA = 1
 	WQCA = 2
@@ -48,4 +50,28 @@ type Board struct {
 	minorPce [3]uint8
 
 	history MovesHistory
+}
+
+func Print120Board() {
+	for v := range BRD_SQ_NUM {
+		if v%10 == 0 {
+			println()
+		}
+		sq64, err := Sq120ToSq64(v)
+		if err != nil {
+			fmt.Printf("%5d", 65)
+			continue
+		}
+		fmt.Printf("%5d", sq64)
+	}
+}
+
+func Print64Board() {
+	for v := range 64 {
+		if v%8 == 0 {
+			println()
+		}
+		sq120 := Sq64ToSq120(v)
+		fmt.Printf("%5d", sq120)
+	}
 }
