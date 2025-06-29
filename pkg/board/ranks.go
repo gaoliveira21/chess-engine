@@ -1,7 +1,11 @@
 package board
 
+import "strconv"
+
+type BoardRank uint8
+
 const (
-	Rank1 = iota
+	Rank1 BoardRank = iota
 	Rank2
 	Rank3
 	Rank4
@@ -11,3 +15,11 @@ const (
 	Rank8
 	RankNone
 )
+
+func (r BoardRank) String() string {
+	if r == RankNone {
+		return " "
+	}
+
+	return strconv.Itoa(int(r + 1))
+}
